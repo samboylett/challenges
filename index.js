@@ -20,4 +20,14 @@ function isPalindrome(sentence) {
   return true;
 }
 
-module.exports = isPalindrome;
+function isPalindrome2(sentence) {
+  const word = sentence.replace(/[\s,',]*/g, '').toLowerCase();
+
+  for (let i = 0; i < word.length / 2; i++) {
+    if (word[i] !== word.slice(-i - 1)[0]) return false;
+  }
+
+  return true;
+}
+
+module.exports = isPalindrome2;
