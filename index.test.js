@@ -24,6 +24,10 @@ it('can identify an odd palindrome with a comma', () => {
   expect(isPalindrome('a,bcdcba')).toBeTruthy();
 });
 
+it('does not break with only punctuation', () => {
+  expect(isPalindrome('  ,,,  , , , ')).toBeTruthy();
+});
+
 it('passes the examples', () => {
   expect(isPalindrome('A car, a man, a maraca')).toBeTruthy();
   expect(isPalindrome('Adam is the best')).toBeFalsy();
