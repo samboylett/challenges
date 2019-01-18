@@ -9,40 +9,52 @@ const matrix = Object.freeze([
 ]);
 
 describe('Matrix', () => {
+    it('throws error if matrix values not in ascending order', () => {
+        expect(() => {
+            new Matrix([[1, 0]]);
+        }).toThrow();
+    });
+
+    it('throws error if matrix values not in ascending order across every axis', () => {
+        expect(() => {
+            new Matrix([[4, 5, 6], [1, 2, 3]]);
+        }).toThrow();
+    });
+
     describe('getTotalLength', () => {
         it('returns the number of values in matrix', () => {
-            expect(new Matrix([[1, 2, 3], [1, 2, 3]]).getTotalLength()).toBe(6);
+            expect(new Matrix([[1, 2, 3], [4, 5, 6]]).getTotalLength()).toBe(6);
             expect(new Matrix([[1, 2, 3, 4]]).getTotalLength()).toBe(4);
         });
     });
 
     describe('getIndexCoords', () => {
         it('returns the coords of a flattened array index at the beginning', () => {
-            expect(new Matrix([[1, 2, 3], [1, 2, 3]]).getIndexCoords(0)).toEqual([0, 0]);
+            expect(new Matrix([[1, 2, 3], [4, 5, 6]]).getIndexCoords(0)).toEqual([0, 0]);
         });
 
         it('returns the coords of a flattened array index at the end', () => {
-            expect(new Matrix([[1, 2, 3], [1, 2, 3]]).getIndexCoords(5)).toEqual([1, 2]);
+            expect(new Matrix([[1, 2, 3], [4, 5, 6]]).getIndexCoords(5)).toEqual([1, 2]);
         });
 
         it('returns the coords of a flattened array index in the middle', () => {
-            expect(new Matrix([[1, 2, 3], [1, 2, 3]]).getIndexCoords(2)).toEqual([0, 2]);
-            expect(new Matrix([[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]).getIndexCoords(5)).toEqual([1, 1]);
+            expect(new Matrix([[1, 2, 3], [4, 5, 6]]).getIndexCoords(2)).toEqual([0, 2]);
+            expect(new Matrix([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]).getIndexCoords(5)).toEqual([1, 1]);
         });
     });
 
     describe('getCoordsIndex', () => {
         it('returns the index of a flattened array index at the beginning', () => {
-            expect(new Matrix([[1, 2, 3], [1, 2, 3]]).getCoordsIndex([0, 0])).toEqual(0);
+            expect(new Matrix([[1, 2, 3], [4, 5, 6]]).getCoordsIndex([0, 0])).toEqual(0);
         });
 
         it('returns the index of a flattened array index at the end', () => {
-            expect(new Matrix([[1, 2, 3], [1, 2, 3]]).getCoordsIndex([1, 2])).toEqual(5);
+            expect(new Matrix([[1, 2, 3], [4, 5, 6]]).getCoordsIndex([1, 2])).toEqual(5);
         });
 
         it('returns the index of a flattened array index in the middle', () => {
-            expect(new Matrix([[1, 2, 3], [1, 2, 3]]).getCoordsIndex([0, 2])).toEqual(2);
-            expect(new Matrix([[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]).getCoordsIndex([1, 1])).toEqual(5);
+            expect(new Matrix([[1, 2, 3], [4, 5, 6]]).getCoordsIndex([0, 2])).toEqual(2);
+            expect(new Matrix([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]).getCoordsIndex([1, 1])).toEqual(5);
         });
     });
 });

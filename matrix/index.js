@@ -1,6 +1,22 @@
 class Matrix {
     constructor(value) {
         this.value = value;
+
+        if (!this.isValid()) {
+            throw new Error('Your matrix values need to be in ascending order!');
+        }
+    }
+
+    isValid() {
+        let biggestSoFar = -Infinity;
+
+        for (let i = 0; i < this.getTotalLength(); i++) {
+            if (this.v(i) < biggestSoFar) return false;
+
+            biggestSoFar = this.v(i);
+        }
+
+        return true;
     }
 
     getTotalLength() {
@@ -18,6 +34,12 @@ class Matrix {
         return (
             (this.value[0].length * i) + j
         );
+    }
+
+    v(index) {
+        const [i, j] = this.getIndexCoords(index);
+
+        return this.value[i][j];
     }
 }
 
