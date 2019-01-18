@@ -1,12 +1,24 @@
-function getCoords(matrix, match) {
-    for (let i = 0; i < matrix.length; i++) {
-        for (let j = 0; j < matrix[i].length; j++) {
-            if (matrix[i][j] === match) {
-                return [i, j];
-            }
-        }
+class Matrix {
+    constructor(value) {
+        this.value = value;
     }
-    return null;
+
+    getTotalLength() {
+        return this.value.length * this.value[0].length;
+    }
+
+    getIndexCoords(index) {
+        const i = Math.floor(index / this.value[0].length);
+        const j = index % this.value[0].length;
+
+        return [i, j];
+    }
+
+    getCoordsIndex([i, j]) {
+        return (
+            (this.value[0].length * i) + j
+        );
+    }
 }
 
-module.exports = getCoords;
+module.exports = Matrix;
