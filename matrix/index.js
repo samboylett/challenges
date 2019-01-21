@@ -42,8 +42,20 @@ class Matrix {
         return this.value[i][j];
     }
 
-    getValueIndex(value) {
-        // let middle = this
+    getValueIndex(value, [start = 0, end = this.getTotalLength()] = []) {
+        let middle = Math.floor(((end - start) / 2) + start);
+
+        if (this.v(middle) > value) {
+            if (middle === end) return null;
+
+            return this.getValueIndex(value, [start, middle]);
+        } else if (this.v(middle) < value) {
+            if (middle === start) return null;
+
+            return this.getValueIndex(value, [middle, end]);
+        }
+
+        return this.getIndexCoords(middle);
     }
 
     getValueIndexSimple(value) {

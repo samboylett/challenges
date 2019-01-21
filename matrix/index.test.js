@@ -73,4 +73,22 @@ describe('Matrix', () => {
             expect(m.getValueIndexSimple(30)).toBe(null);
         });
     });
+
+    describe('getValueIndex', () => {
+        it('returns the correct coords for the values location', () => {
+            const m = new Matrix(matrix);
+
+            expect(m.getValueIndex(1)).toEqual([0, 0]);
+            expect(m.getValueIndex(20)).toEqual([4, 3]);
+            expect(m.getValueIndex(10)).toEqual([2, 1]);
+        });
+
+        it('returns null if value not present', () => {
+            const m = new Matrix(matrix);
+
+            expect(m.getValueIndex(30)).toBe(null);
+            expect(m.getValueIndex(10.5)).toBe(null);
+            expect(m.getValueIndex(0)).toBe(null);
+        });
+    });
 });
