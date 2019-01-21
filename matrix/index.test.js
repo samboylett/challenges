@@ -57,4 +57,20 @@ describe('Matrix', () => {
             expect(new Matrix([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]).getCoordsIndex([1, 1])).toEqual(5);
         });
     });
+
+    describe('getValueIndexSimple', () => {
+        it('returns the correct coords for the values location', () => {
+            const m = new Matrix(matrix);
+
+            expect(m.getValueIndexSimple(1)).toEqual([0, 0]);
+            expect(m.getValueIndexSimple(20)).toEqual([4, 3]);
+            expect(m.getValueIndexSimple(10)).toEqual([2, 1]);
+        });
+
+        it('returns null if value not present', () => {
+            const m = new Matrix(matrix);
+
+            expect(m.getValueIndexSimple(30)).toBe(null);
+        });
+    });
 });

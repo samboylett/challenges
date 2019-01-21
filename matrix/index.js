@@ -41,6 +41,20 @@ class Matrix {
 
         return this.value[i][j];
     }
+
+    getValueIndex(value) {
+        // let middle = this
+    }
+
+    getValueIndexSimple(value) {
+        for (let i = 0; i < this.getTotalLength(); i++) {
+            if (this.v(i) === value) {
+                return this.getIndexCoords(i);
+            }
+        }
+
+        return null;
+    }
 }
 
 module.exports = Matrix;
