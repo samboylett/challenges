@@ -42,20 +42,28 @@ class Matrix {
         return this.value[i][j];
     }
 
-    getValueIndex(value, [start = 0, end = this.getTotalLength()] = []) {
-        let middle = Math.floor(((end - start) / 2) + start);
+    getValueIndex(value) {
+        let start = 0;
+        let end = this.getTotalLength();
+        let middle;
 
-        if (this.v(middle) > value) {
-            if (middle === end) return null;
+        while(true) {
+            middle = Math.floor(((end - start) / 2) + start);
 
-            return this.getValueIndex(value, [start, middle]);
-        } else if (this.v(middle) < value) {
-            if (middle === start) return null;
+            if (this.v(middle) > value) {
+                if (middle === end) break;
 
-            return this.getValueIndex(value, [middle, end]);
+                end = middle;
+            } else if (this.v(middle) < value) {
+                if (middle === start) break;
+
+                start = middle;
+            } else {
+                return this.getIndexCoords(middle);
+            }
         }
 
-        return this.getIndexCoords(middle);
+        return null;
     }
 
     getValueIndexSimple(value) {
