@@ -45,10 +45,9 @@ class Matrix {
     getValueIndex(value) {
         let start = 0;
         let end = this.getTotalLength();
-        let middle;
 
-        while(true) {
-            middle = Math.floor(((end - start) / 2) + start);
+        do {
+            const middle = Math.floor(((end - start) / 2) + start);
 
             if (this.v(middle) > value) {
                 if (middle === end) break;
@@ -61,7 +60,7 @@ class Matrix {
             } else {
                 return this.getIndexCoords(middle);
             }
-        }
+        } while(true);
 
         return null;
     }
