@@ -94,7 +94,7 @@ describe('Matrix', () => {
 
     describe('getDimensions', () => {
         it('returns equal to the number of dimensions', () => {
-            expect(new Matrix([1]).getDimensions()).toBe(1);
+            // expect(new Matrix([1]).getDimensions()).toBe(1);
             expect(new Matrix([[1]]).getDimensions()).toBe(2);
             expect(new Matrix([[[1]]]).getDimensions()).toBe(3);
         });

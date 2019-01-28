@@ -40,7 +40,13 @@ class Matrix {
     }
 
     getTotalLength() {
-        return this.value.length * this.value[0].length;
+        let length = this.value.length;
+
+        for (let i = 0; i < (this.getDimensions() - 1); i++) {
+            length *= this.getCoordsValue(...new Array(i + 1).fill(0)).length;
+        }
+
+        return length;
     }
 
     getIndexCoords(index) {
@@ -57,9 +63,7 @@ class Matrix {
     }
 
     v(index) {
-        const [i, j] = this.getIndexCoords(index);
-
-        return this.value[i][j];
+        return this.getCoordsValue(...this.getIndexCoords(index));
     }
 
     getValueIndex(value) {
