@@ -19,6 +19,26 @@ class Matrix {
         return true;
     }
 
+    getCoordsValue(...coords) {
+        let value = this.value;
+
+        coords.forEach(coord => {
+            value = value[coord];
+        });
+
+        return value;
+    }
+
+    getDimensions() {
+        let coords = [0];
+
+        while (Array.isArray(this.getCoordsValue(...coords))) {
+            coords.push(0);
+        }
+
+        return coords.length;
+    }
+
     getTotalLength() {
         return this.value.length * this.value[0].length;
     }
