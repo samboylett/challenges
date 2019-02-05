@@ -43,4 +43,20 @@ function generateEmirps(max = 20) {
     return emirps;
 }
 
-module.exports = { isPrime, isEmirp, generateEmirps, generatePrimes };
+function getEmirpsBetween(min = 7700, max = 8000) {
+    const emirps = [];
+
+    for (
+        let i = min % 2 ? min : (min + 1);
+        i <= max;
+        i += 2
+    ) {
+        if (isEmirp(i)) {
+            emirps.push(i);
+        }
+    }
+
+    return emirps;
+}
+
+module.exports = { isPrime, isEmirp, generateEmirps, generatePrimes, getEmirpsBetween };

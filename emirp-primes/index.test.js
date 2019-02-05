@@ -1,4 +1,4 @@
-const { isPrime, isEmirp, generateEmirps, generatePrimes } = require('./index.js');
+const { isPrime, isEmirp, generateEmirps, generatePrimes, getEmirpsBetween } = require('./index.js');
 
 describe('isPrime', () => {
     it('returns true if prime', () => {
@@ -65,5 +65,11 @@ describe('generateEmirps', () => {
             359,
             389,
         ]);
+    });
+});
+
+describe('getEmirpsBetween', () => {
+    it('can get emirps between 7700 and 8000', () => {
+        expect(getEmirpsBetween(7700, 8000)).toEqual([7717, 7757, 7817, 7841, 7867, 7879, 7901, 7927, 7949, 7951, 7963]);;
     });
 });
