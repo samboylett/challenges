@@ -59,4 +59,8 @@ function getEmirpsBetween(min = 7700, max = 8000) {
     return emirps;
 }
 
-module.exports = { isPrime, isEmirp, generateEmirps, generatePrimes, getEmirpsBetween };
+function getNthEmirp(n = 1000) {
+    return generateEmirps(n).slice(-1)[0];
+}
+
+module.exports = { isPrime, isEmirp, generateEmirps, generatePrimes, getEmirpsBetween, getNthEmirp };
