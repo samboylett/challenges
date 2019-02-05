@@ -42,28 +42,28 @@ describe('generatePrimes', () => {
 });
 
 describe('generateEmirps', () => {
-    // it('can generate first 20 emirps', () => {
-    //     expect(generateEmirps(20)).toEqual([
-    //         2,
-    //         3,
-    //         5,
-    //         7,
-    //         11,
-    //         13,
-    //         17,
-    //         31,
-    //         37,
-    //         71,
-    //         73,
-    //         79,
-    //         97,
-    //         101,
-    //         107,
-    //         113,
-    //         131,
-    //         149,
-    //         151,
-    //         157,
-    //     ]);
-    // });
+    it('can generate first 20 emirps', () => {
+        expect(generateEmirps(20)).toEqual([
+            13,
+            17,
+            31,
+            37,
+            71,
+            73,
+            79,
+            97,
+            107,
+            113,
+            149,
+            157,
+            167,
+            179,
+            199,
+            311,
+            337,
+            347,
+            359,
+            389,
+        ]);
+    });
 });

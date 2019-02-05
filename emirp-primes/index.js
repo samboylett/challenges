@@ -30,7 +30,7 @@ function generateEmirps(max = 20) {
     const primes = [];
     const emirps = [];
 
-    for (let i = 2; emirps.length < max; i++) {
+    for (let i = 13; emirps.length < max; i += 2) {
         if (!primes.some(num => i % num === 0)) {
             primes.push(i);
 
