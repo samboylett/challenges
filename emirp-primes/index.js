@@ -11,7 +11,7 @@ function isPrime(number) {
 function isEmirp(number) {
     const reversed = parseInt(number.toString().split('').reverse().join(''));
 
-    return isPrime(number) && isPrime(reversed);
+    return number !== reversed && isPrime(number) && isPrime(reversed);
 }
 
 function generatePrimes(max = 20) {
