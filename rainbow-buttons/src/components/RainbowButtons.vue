@@ -1,13 +1,24 @@
 <template>
-  <nav>
-    <button
-      v-for="backgroundColor in colours"
-      :key="backgroundColor"
-      :style="{ backgroundColor }"
-    >
-      Link
-    </button>
-  </nav>
+  <div>
+    <nav>
+      <button
+        v-for="backgroundColor in rainbow"
+        :key="backgroundColor"
+        :style="{ backgroundColor }"
+      >
+        Link
+      </button>
+    </nav>
+    <nav>
+      <button
+        v-for="backgroundColor in colours"
+        :key="backgroundColor"
+        :style="{ backgroundColor }"
+      >
+        Link
+      </button>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -49,6 +60,18 @@ export default {
 
       return colours.map(([r, g, b]) => `rgb(${ r }, ${ g }, ${ b })`);
     },
+
+    rainbow() {
+      return  [
+        '#FF0000',
+        '#FF7F00',
+        '#FFFF00',
+        '#00FF00',
+        '#0000FF',
+        '#4B0082',
+        '#9400D3',
+      ];
+    }
   },
 
   methods: {
